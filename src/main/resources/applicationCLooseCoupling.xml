@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--    create a class bean from the DB services-->
+    <bean id="userDatabaseProvider" class="com.IOC.coupling.UserDatabaseProvider"/>
+    <bean id="webServiceDatabaseProvider" class="com.IOC.coupling.WebServiceDatabaseProvider"/>
+    <bean id="newDatabaseProvider" class="com.IOC.coupling.NewDatabaseProvider"/>
+
+<!--    making User Manager beans-->
+    <bean id="managerWithDB" class="com.IOC.coupling.UserManager">
+        <constructor-arg ref="userDatabaseProvider"/>
+    </bean>
+    <bean id="managerWithWS" class="com.IOC.coupling.UserManager">
+        <constructor-arg ref="webServiceDatabaseProvider"/>
+    </bean>
+    <bean id="mangerWithNP" class="com.IOC.coupling.UserManager">
+        <constructor-arg ref="newDatabaseProvider"/>
+    </bean>
+
+</beans>
