@@ -4,7 +4,7 @@ package com.example.componentScan.annotation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("employee1")
 // can use @Component("employee01") then we are use in get bean -> "employee01"
 public class Employee {
     private int employeeID;
