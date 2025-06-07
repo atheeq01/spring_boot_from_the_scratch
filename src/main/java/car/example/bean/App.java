@@ -8,6 +8,7 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationBeanContext.xml");
 
         MyBean myBean = (MyBean) context.getBean("myBean");
+        myBean.showMessage();
         System.out.println(myBean);
     }
 }
